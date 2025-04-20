@@ -95,6 +95,12 @@ def adicionar():
     # Retreinar o modelo
     modelo = svm.SVC(kernel='linear', C=0.1)
     modelo.fit(X, y)
+
+  if __name__ == '__main__':
+    from os import getenv
+    port = int(getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
     
     return jsonify({'success': True})
 
