@@ -1,21 +1,17 @@
 {
-  "routes": [
+  "version": 2,
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/dados",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/classificar",
-      "dest": "api/main.py",
-      "methods": ["POST"]
-    },
-    {
-      "src": "/(.*)",
-      "dest": "api/main.py"
+      "src": "api/main.py",
+      "use": "@vercel/python",
+      "config": { 
+        "maxLambdaSize": "15mb",
+        "includeFiles": ["templates/**", "static/**", "api/requirements.txt"]
+      }
     }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "api/main.py" }
   ]
 }
