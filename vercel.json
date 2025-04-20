@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/dados",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/classificar",
+      "dest": "api/main.py",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/main.py"
+    }
+  ]
+}
